@@ -1,14 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawer"
+    android:orientation="vertical"
     tools:context=".LocationUpdate">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp">
 
-</FrameLayout>
+        <View
+            android:id="@+id/view"
+            android:layout_width="120dp"
+            android:layout_height="10dp"
+            android:background="@drawable/drawer"
+            android:backgroundTint="#6F6969" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend_medium"
+            android:text="Your Location"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend_medium"
+            android:text="Your Location"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lexend_medium"
+            android:text="Near-By Radius"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/km10"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:checked="true"
+                android:hapticFeedbackEnabled="true"
+                android:text="10 KM"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/black"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/km25"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="25 KM"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="@color/black"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/km50"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="50 KM"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="#050404"
+                app:closeIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/costom"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="Custom"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="#000000"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+            <TextView
+                android:id="@+id/value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexend_medium"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="10"
+
+                android:value="50"
+                android:valueFrom="0"
+                android:valueTo="150"
+                android:visibility="gone"
+                app:haloColor="#7A7A7A"
+                app:thumbColor="@color/black"
+                app:thumbHeight="25dp"
+                app:trackColorActive="@color/black"
+                app:trackColorInactive="@color/statusbar"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lexend_medium"
+            android:text="Travel Themes"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:checked="true"
+                android:hapticFeedbackEnabled="true"
+                android:text="All"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/black"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="Spritual"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="@color/black"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="Adventure"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="#050404"
+                app:closeIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="Heritage"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="#000000"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lexend_medium"
+            android:text="Best for"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:checked="true"
+                android:hapticFeedbackEnabled="true"
+                android:text="All"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/black"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="Family"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="@color/black"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="Friends"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="#050404"
+                app:closeIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checkable="true"
+                android:text="Couples"
+                android:textColor="@color/black"
+                app:checkedIcon="@drawable/sanchari1"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeColor="#000000"
+                app:closeIconVisible="false"
+                app:rippleColor="#7F000000" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonbgbg"
+            android:text="Apply Filters"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

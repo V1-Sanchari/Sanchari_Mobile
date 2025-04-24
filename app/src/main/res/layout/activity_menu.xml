@@ -1,10 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Menu">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <ImageButton
+            android:id="@+id/settingsBack"
+            android:layout_width="40dp"
+            android:layout_height="29dp"
+            android:layout_weight="0"
+            android:background="@color/white"
+            android:paddingLeft="10dp"
+            android:paddingTop="8dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/vector"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0"
+            android:fontFamily="@font/lexend_medium"
+            android:gravity="center_vertical"
+            android:text="Menu"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:visibility="visible"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/wld"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input"
+                app:srcCompat="@drawable/ganapathi" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexend_medium"
+                    android:text="Ganapathi"
+                    android:textColor="@color/white"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexend_light"
+                    android:text="+91 00000 00000"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/line_11" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mytrips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s1"
+            android:drawableRight="@drawable/chevronright"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:shadowColor="#000000"
+            android:text="My Trips"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+        <!-- Bottom border -->
+        <View
+            android:layout_width="386dp"
+            android:layout_height="2dp"
+            android:background="#D5D5D5D5"
+
+            android:paddingLeft="50dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s2"
+            android:drawableRight="@drawable/chevronright"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:text="My Bookings"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+        <!-- Bottom border -->
+        <View
+            android:layout_width="386dp"
+            android:layout_height="2dp"
+            android:background="#D5D5D5D5"
+
+            android:paddingLeft="50dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s3"
+            android:drawableRight="@drawable/chevronright"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:text="Bookmarks"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+        <!-- Bottom border -->
+        <View
+            android:layout_width="386dp"
+            android:layout_height="2dp"
+            android:background="#D5D5D5D5"
+
+            android:paddingLeft="50dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s4"
+            android:drawableRight="@drawable/chevronright"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:text="Language"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+        <!-- Bottom border -->
+        <View
+            android:layout_width="386dp"
+            android:layout_height="2dp"
+            android:background="#D5D5D5D5"
+
+            android:paddingLeft="50dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s5"
+            android:drawableRight="@drawable/chevronright"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:text="Notifications"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+        <!-- Bottom border -->
+        <View
+            android:layout_width="386dp"
+            android:layout_height="2dp"
+            android:background="#D5D5D5D5"
+
+            android:paddingLeft="50dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s7"
+            android:drawableRight="@drawable/chevronright"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:text="Help"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/line_11" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s8"
+            android:drawableRight="@drawable/chevronright"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:text="About us"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+        <!-- Bottom border -->
+        <View
+            android:layout_width="386dp"
+            android:layout_height="2dp"
+            android:background="#D5D5D5D5"
+
+            android:paddingLeft="50dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+
+            android:background="#00FDFDFD"
+            android:drawableLeft="@drawable/s9"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/lexend_medium"
+            android:padding="2.5dp"
+            android:text="Sanchari v1.0"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="386dp"
+            android:layout_height="2dp"
+            android:background="#D5D5D5D5"
+
+            android:paddingLeft="50dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

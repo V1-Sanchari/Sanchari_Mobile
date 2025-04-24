@@ -1,8 +1,11 @@
 package com.tourism.sanchari;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,16 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.*;
 
-
-
-public class Login extends AppCompatActivity {
+public class signup extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseDatabase database;
@@ -39,12 +34,10 @@ public class Login extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent=new Intent(Login.this,MainActivity.class);
-            startActivity(intent);
+        if (currentUser != null) {
+            startActivity(new Intent(signup.this, MainActivity.class));
+            finish();
         }
     }
 
@@ -52,69 +45,73 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signup);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        EditText Email=findViewById(R.id.email);
-        EditText Password=findViewById(R.id.password);
-        Button loginSubmit=findViewById(R.id.loginSubmit);
+        EditText Email = findViewById(R.id.email);
+        EditText Password = findViewById(R.id.password);
+        EditText Name = findViewById(R.id.name);
+        EditText CnfPassword = findViewById(R.id.cnfpassword);
+        Button loginSubmit = findViewById(R.id.signupSubmit);
 
         mAuth = FirebaseAuth.getInstance();
-        database= FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
 
-        loginSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email ;
-                String password;
-                email=String.valueOf(Email.getText());
-                password=String.valueOf(Password.getText());
+        loginSubmit.setOnClickListener(view -> {
+            String email = Email.getText().toString().trim();
+            String password = Password.getText().toString().trim();
+            String confirmPassword = CnfPassword.getText().toString().trim();
+            String name = Name.getText().toString().trim();
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Login.this,"enter mail",Toast.LENGTH_SHORT).show();
-                    return;
-
-                }
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Login.this,"enter password",Toast.LENGTH_SHORT).show();
-                    return;
-
-                }
-
-
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-
-                                    AddUser addUser=new AddUser();
-                                    addUser.insertUser(email,password);
-
-                                    Intent intent=new Intent(Login.this,MainActivity.class);
-                                    startActivity(intent);
-
-                                    //inherit pending
-
-                                } else {
-                                    // If sign in fails, display a message to the user.
-
-                                    Toast.makeText(Login.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-
-                                }
-                            }
-                        });
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(signup.this, "Enter email", Toast.LENGTH_SHORT).show();
+                return;
             }
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(signup.this, "Invalid email format", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(password)) {
+                Toast.makeText(signup.this, "Enter password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!password.equals(confirmPassword)) {
+                Toast.makeText(signup.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(signup.this, task -> {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                            // Save user info to Firebase Realtime Database
+                            String userId = user.getUid();
+                            //User newUser = new User(name, email); // You need to create this class
+                            //database.getReference().child("Users").child(userId).setValue(newUser);
+                            String EMAIL=Email.getText().toString();
+                            String NAME=Name.getText().toString();
+                            String PASS=Password.getText().toString();
+                            String CPASS=CnfPassword.getText().toString();
+
+                            Toast.makeText(signup.this, "Account created!", Toast.LENGTH_SHORT).show();
+                            AddSignUp su=new AddSignUp();
+                            su.insertUser(NAME,EMAIL,PASS,CPASS);
+
+                            startActivity(new Intent(signup.this, MainActivity.class));
+                            finish();
+                        } else {
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(signup.this, "Authentication failed: " +
+                                    task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
         });
-
-
-
     }
 }
-
