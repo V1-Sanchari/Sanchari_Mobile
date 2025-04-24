@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "457901788397",
+    "project_id": "sanchari-16c7f",
+    "storage_bucket": "sanchari-16c7f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457901788397:android:a1c86176df1d1a887990e4",
+        "android_client_info": {
+          "package_name": "com.tourism.sanchari"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQtrkdcZNM66e2pBf2_BBYb0oVcnyAcH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
