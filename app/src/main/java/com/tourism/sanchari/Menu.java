@@ -1,5 +1,6 @@
 package com.tourism.sanchari;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -41,7 +42,6 @@ public class Menu extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
 
 
         mAuth = FirebaseAuth.getInstance();

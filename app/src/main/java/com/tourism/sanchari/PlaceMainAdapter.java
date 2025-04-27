@@ -1,6 +1,7 @@
 package com.tourism.sanchari;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -86,6 +88,15 @@ public class PlaceMainAdapter extends RecyclerView.Adapter<PlaceMainAdapter.Plac
             holder.CatBadge.setImageResource(R.drawable.his_badge);
         }
 
+        holder.SeeMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context,PlacePage.class);
+                intent.putExtra("PlaceName",currentPlace.getPlaceName());
+                context.startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -107,6 +118,7 @@ public class PlaceMainAdapter extends RecyclerView.Adapter<PlaceMainAdapter.Plac
         TextView placeAddress;
         ImageButton BookmarkRL;
         ImageView CatBadge;
+        AppCompatButton SeeMore;
 
         public PlaceViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -115,6 +127,7 @@ public class PlaceMainAdapter extends RecyclerView.Adapter<PlaceMainAdapter.Plac
             BookmarkRL=itemView.findViewById(R.id.bookmarkRL);
             itembg=itemView.findViewById(R.id.itembg);
             CatBadge=itemView.findViewById(R.id.catbadge);
+            SeeMore=itemView.findViewById(R.id.SeeMore);
         }
     }
 }
